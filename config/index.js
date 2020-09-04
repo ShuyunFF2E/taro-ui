@@ -12,21 +12,18 @@ const config = {
   deviceRatio: {
     640: 2.34 / 2,
     750: 1,
-    828: 1.81 / 2
+    828: 1.81 / 2,
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
   plugins: [],
-  defineConstants: {
-  },
+  defineConstants: {},
   csso: {
     enable: true,
   },
   copy: {
-    patterns: [
-    ],
-    options: {
-    }
+    patterns: [],
+    options: {},
   },
   alias: {
     '@common': resolve(__dirname, '..', 'src/common'),
@@ -40,58 +37,56 @@ const config = {
         enable: true,
         config: {
           browsers: ['last 3 versions', 'Android >= 4.1', 'ios >= 8'],
-        }
+        },
       },
       pxtransform: {
         enable: true,
-        config: { }
+        config: {},
       },
       url: {
         enable: true,
         config: {
-          limit: 1024
-        }
+          limit: 1024,
+        },
       },
       cssModules: {
         enable: true,
         config: {
           namingPattern: 'global', // 转换模式，取值为 global/module
-          generateScopedName: '[local]_[hash:base64:2]'
-        }
-      }
-    }
+          generateScopedName: '[local]_[hash:base64:2]',
+        },
+      },
+    },
   },
   h5: {
     publicPath: '/',
     staticDirectory: 'assets',
     postcss: {
-      cssModules: {
-        enable: true,
-        config: {
-          namingPattern: 'global',
-          generateScopedName: '[local]_[hash:base64:2]'
-        }
-      }
+      // cssModules: {
+      //   enable: true,
+      //   config: {
+      //     namingPattern: 'global',
+      //     generateScopedName: '[local]_[hash:base64:2]'
+      //   }
+      // }
     },
     router: {
       mode: 'hash',
       customRoutes: routerConfig,
     },
     webpackChain(chain) {
-      isStartAnalyzer &&
-      chain.plugin('analyzer')
-        .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin, []);
+      isStartAnalyzer && chain.plugin('analyzer').use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin, []);
     },
     lessLoaderOption: {
       strictMath: true,
-      noIeCompat: true
-    }
-  }
-}
+      noIeCompat: true,
+    },
+  },
+};
 
 module.exports = function (merge) {
   if (process.env.NODE_ENV === 'development') {
-    return merge({}, config, require('./dev'))
+    return merge({}, config, require('./dev'));
   }
-  return merge({}, config, require('./prod'))
-}
+  return merge({}, config, require('./prod'));
+};

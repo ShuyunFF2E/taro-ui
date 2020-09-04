@@ -1,6 +1,6 @@
 {
   "extends": [
-    "taro/react",
+    "taro",
     "airbnb",
     "prettier",
     "prettier/react"

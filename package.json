@@ -1,5 +1,5 @@
 {
-  "name": "components-zdx",
+  "name": "taro-ui",
   "version": "1.0.0",
   "private": true,
   "description": "智多星插件-多端组件库",
@@ -64,6 +64,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-react-hooks": "^1.6.1",
+    "eslint-plugin-taro": "^3.0.8",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.13",
     "minimist": "^1.2.5",

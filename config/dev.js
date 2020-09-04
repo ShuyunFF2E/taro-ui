@@ -42,8 +42,8 @@ const config = {
     enableSourceMap: true,
     sourceMapType: 'cheap-module-eval-source-map',
     devServer: {
-      host: '0.0.0.0',
-      port: 10086,
+      host: 'localhost',
+      port: 9999,
       compress: true,
       overlay: true,
       disableHostCheck: true
@@ -58,14 +58,6 @@ const devSetting = () => {
     }
     return;
   }
-  const proxy = {
-    '/mall-c': {
-      target: '',
-      changeOrigin: true,
-      secure: false
-    }
-  };
-  config.h5.devServer.proxy = proxy;
 }
 
 devSetting();

@@ -1,6 +1,6 @@
 {
   "miniprogramRoot": "./dist",
-  "projectname": "components-zdx",
+  "projectname": "taro-ui",
   "description": "智多星插件-小程序组件库",
   "appid": "touristappid",
   "setting": {

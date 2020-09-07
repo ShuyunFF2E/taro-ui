@@ -6,9 +6,8 @@ import { observable } from 'mobx';
 
 @observer
 class Index extends Component {
-
   @observable
-  componentsName = ['input', 'button', 'checkbox', 'tag', 'pagination', 'tab', 'table', 'message', 'modal'];
+  componentsName = ['input', 'button', 'checkbox', 'tag', 'pagination', 'tab', 'table', 'message', 'modal', 'icon'];
 
   redirect = url => {
     console.log('url:', `/${url}`);
@@ -22,9 +21,11 @@ class Index extends Component {
 
     return (
       <View className="index">
-        {
-          componentsName.map((item, index) => (<Button size="mini" type="primary" style={{ margin: '10px' }} onClick={() => redirect(item)} key={index}>{item}</Button>))
-        }
+        {componentsName.map((item, index) => (
+          <Button size="mini" type="primary" style={{ margin: '10px' }} onClick={() => redirect(item)} key={index}>
+            {item}
+          </Button>
+        ))}
       </View>
     );
   }

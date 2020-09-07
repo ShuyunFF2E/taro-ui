@@ -10,5 +10,6 @@ const router = {
   '/pages/table/index': '/table',
   '/pages/message/index': '/message',
   '/pages/modal/index': '/modal',
-}
-module.exports = router
+  '/pages/icon/index': '/icon',
+};
+module.exports = router;

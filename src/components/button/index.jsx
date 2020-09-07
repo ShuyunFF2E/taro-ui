@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { observer } from 'mobx-react';
 import { View } from '@tarojs/components';
-import prefixCls from '@utils';
+import { prefixCls } from '../const';
 
 import { TYPES, SIZE } from './constants'
 import './index.less'

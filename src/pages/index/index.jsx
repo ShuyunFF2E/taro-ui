@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Taro from '@tarojs/taro';
 import { observer } from 'mobx-react';
-import { View, Button } from '@tarojs/components';
+import { View, Button, Icon } from '@tarojs/components';
 import { observable } from 'mobx';
 
 @observer
@@ -26,6 +26,23 @@ class Index extends Component {
             {item}
           </Button>
         ))}
+
+        <View>
+          以下为taro组件库的Icon:
+          <View>
+            <Icon size="20" type="success" />
+            <Icon size="20" type="info" />
+            <Icon size="20" type="warn" color="#ccc" />
+            <Icon size="20" type="warn" />
+            <Icon size="20" type="waiting" />
+            <Icon size="20" type="success_no_circle" />
+            <Icon size="20" type="warn" />
+            <Icon size="20" type="success" />
+            <Icon size="20" type="download" />
+            <Icon size="20" type="clear" color="red" />
+            <Icon size="20" type="search" />
+          </View>
+        </View>
       </View>
     );
   }

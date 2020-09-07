@@ -1,0 +1,49 @@
+@import '../style/index';
+
+@tag-prefix-cls: ~'@{prefix}-tag';
+
+@default-color: #000;
+@default-border-color: #dedede;
+@default-background-color: #f7f7f7;
+
+.@{tag-prefix-cls} {
+  font-size: 24px;
+  display: inline-block;
+  overflow: hidden;
+  color: @default-color;
+  background: @default-background-color;
+  padding: 0 14px;
+  height: 40px;
+  border: 1px solid @default-border-color;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s ease-out;
+
+  &:hover {
+    border-color: #1baeff;
+    color: #28a3ef;
+  }
+
+  &.checked {
+    color: #fff;
+    background: #28a3ef;
+    border-color: #1299ec;
+  }
+
+  &.closable {
+    .tag-close-icon {
+      display: inline-block;
+      color: #cecece;
+    }
+  }
+
+  &.onshow {
+    background: #eff7ff;
+    color: #666;
+    border: 1px solid #ccdceb;
+
+    &:hover {
+      color: #0083ba;
+    }
+  }
+}

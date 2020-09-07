@@ -10,6 +10,16 @@
 @default-line-height: 36px;
 @default-font-size: 24px;
 
+.color-style(@backgroundColor, @borderColor) {
+  background-color: @backgroundColor;
+  border: 1px solid @borderColor;
+}
+
+.size-style(@lineHeight, @fontSize) {
+  line-height: @lineHeight;
+  font-size: @fontSize;
+}
+
 .@{button-prefix-cls} {
   border-radius: @border-radius;
   display: inline-block;
@@ -20,33 +30,40 @@
   /* type */
   &.primary {
     color: #fff;
-    background-color: #28a3ef;
-    border: 1px solid #1299ec;
+    .color-style(#28a3ef, #1299ec);
+
+    &:hover {
+      .color-style(#4cb9fc, #33affc);
+    }
   }
 
   &.normal {
     color: #333;
-    background-color: #eee;
-    border: 1px solid #ececec;
+    .color-style(#eee, #ececec);
+
+    &:hover {
+      .color-style(#f7f7f7, #eaeaea);
+    }
   }
 
   &.link {
     color: #009bf0;
+
+    &:hover {
+      color: #1baeff
+    }
   }
 
   /*size*/
   &.large {
-    line-height: @large-line-height;
-    font-size: @large-font-size;
+    .size-style(@large-line-height, @large-font-size);
   }
 
   &.default {
-    line-height: @default-line-height;
-    font-size: @default-font-size;
+    .size-style(@default-line-height, @default-font-size);
   }
 
   &.small {
-    line-height: @default-line-height;
-    font-size: @default-font-size;
+    .size-style(@default-line-height, @default-font-size);
   }
 }

@@ -1,0 +1,52 @@
+@import '../style/index';
+
+@button-prefix-cls: ~'@{prefix}-button';
+
+@border-radius: 5px;
+
+@large-line-height: 44px;
+@large-font-size: 28px;
+
+@default-line-height: 36px;
+@default-font-size: 24px;
+
+.@{button-prefix-cls} {
+  border-radius: @border-radius;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 4px 28px;
+  cursor: pointer;
+
+  /* type */
+  &.primary {
+    color: #fff;
+    background-color: #28a3ef;
+    border: 1px solid #1299ec;
+  }
+
+  &.normal {
+    color: #333;
+    background-color: #eee;
+    border: 1px solid #ececec;
+  }
+
+  &.link {
+    color: #009bf0;
+  }
+
+  /*size*/
+  &.large {
+    line-height: @large-line-height;
+    font-size: @large-font-size;
+  }
+
+  &.default {
+    line-height: @default-line-height;
+    font-size: @default-font-size;
+  }
+
+  &.small {
+    line-height: @default-line-height;
+    font-size: @default-font-size;
+  }
+}

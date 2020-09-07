@@ -8,6 +8,11 @@
     "typescript": false,
     "css": "less"
   },
+  "browserslist": [
+    "last 3 versions",
+    "Android >= 4.1",
+    "ios >= 8"
+  ],
   "scripts": {
     "build:weapp": "taro build --type weapp",
     "build:alipay": "taro build --type alipay",
@@ -18,11 +23,6 @@
     "dev:h5": "npm run build:h5 -- --watch",
     "dev:h5:mock": "npm run build:h5:mock -- --watch"
   },
-  "browserslist": [
-    "last 3 versions",
-    "Android >= 4.1",
-    "ios >= 8"
-  ],
   "author": "shuyun-fe",
   "license": "MIT",
   "dependencies": {
@@ -32,9 +32,11 @@
     "@tarojs/react": "3.0.8",
     "@tarojs/runtime": "3.0.8",
     "@tarojs/taro": "3.0.8",
+    "classnames": "^2.2.6",
     "lru-cache": "^6.0.0",
     "mobx": "4.8.0",
     "mobx-react": "6.1.4",
+    "prop-types": "^15.7.2",
     "react": "16.10.0",
     "react-dom": "16.10.0",
     "taro-axios": "^1.1.1"
@@ -62,9 +64,8 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.8.2",
+    "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^1.6.1",
-    "eslint-plugin-taro": "^3.0.8",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.13",
     "minimist": "^1.2.5",

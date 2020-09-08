@@ -22,7 +22,7 @@
     "dev:alipay": "npm run build:alipay -- --watch",
     "dev:h5": "npm run build:h5 -- --watch",
     "build:component": "cross-env TARO_BUILD_TYPE=component taro build --ui",
-    "version": "npm run build:h5 && npm publish dist"
+    "version": "npm run build:component && npm publish dist"
   },
   "author": "shuyun-fe",
   "license": "MIT",

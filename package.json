@@ -1,6 +1,6 @@
 {
   "name": "taro-ui",
-  "version": "1.0.1-0",
+  "version": "1.0.2-0",
   "private": true,
   "description": "智多星插件-多端组件库",
   "templateInfo": {
@@ -21,8 +21,8 @@
     "dev:weapp": "npm run build:weapp -- --watch",
     "dev:alipay": "npm run build:alipay -- --watch",
     "dev:h5": "npm run build:h5 -- --watch",
-    "dev:h5:mock": "npm run build:h5:mock -- --watch",
-    "version": "npm run build:h5:mock && npm publish dist"
+    "build:component": "cross-env TARO_BUILD_TYPE=component taro build --ui",
+    "version": "npm run build:h5 && npm publish dist"
   },
   "author": "shuyun-fe",
   "license": "MIT",
@@ -57,6 +57,7 @@
     "babel-eslint": "^10.1.0",
     "babel-preset-taro": "3.0.8",
     "chalk": "^4.1.0",
+    "copy-webpack-plugin": "^6.1.0",
     "dayjs": "^1.8.33",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.2.0",
@@ -70,6 +71,7 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.13",
     "minimist": "^1.2.5",
+    "nervjs": "^1.5.7",
     "prettier": "^2.1.1",
     "pretty-quick": "^3.0.0",
     "stylelint": "9.3.0",

@@ -1,92 +1,83 @@
-const path = require('path');
+/* eslint-disable import/no-commonjs */
+const path = require('path')
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const { resolve } = path;
-const routerConfig = require('./router');
-
-const isStartAnalyzer = false;
+const isBuildComponent = process.env.TARO_BUILD_TYPE === 'component'
 
 const config = {
-  projectName: 'zdx-cross-end',
-  date: '2020-8-27',
+  projectName: 'taro-pc-ui',
   designWidth: 750,
-  deviceRatio: {
-    640: 2.34 / 2,
-    750: 1,
-    828: 1.81 / 2,
-  },
   sourceRoot: 'src',
-  outputRoot: 'dist',
+  outputRoot: isBuildComponent ? 'dist' : `dist/${process.env.TARO_ENV}`,
   plugins: [],
+  babel: {
+    sourceMap: true,
+    presets: [
+      'env'
+    ],
+    plugins: [
+      'transform-class-properties',
+      'transform-decorators-legacy',
+      'transform-object-rest-spread'
+    ]
+  },
   defineConstants: {},
-  csso: {
-    enable: true,
-  },
-  copy: {
-    patterns: [],
-    options: {},
-  },
   alias: {
-    '@common': resolve(__dirname, '..', 'src/common'),
-    '@assets': resolve(__dirname, '..', 'src/assets'),
-    '@components': resolve(__dirname, '..', 'src/components'),
+    'taro-ui': path.resolve(__dirname, '../src/ui.ts'),
   },
-  framework: 'react',
-  mini: {
+  mini: {},
+  h5: {
+    publicPath: "/",
+    staticDirectory: "static",
     postcss: {
       autoprefixer: {
         enable: true,
         config: {
-          browsers: ['last 3 versions', 'Android >= 4.1', 'ios >= 8'],
-        },
-      },
-      pxtransform: {
-        enable: true,
-        config: {},
-      },
-      url: {
-        enable: true,
-        config: {
-          limit: 1024,
-        },
-      },
-      cssModules: {
-        enable: true,
-        config: {
-          namingPattern: 'global', // 转换模式，取值为 global/module
-          generateScopedName: '[local]_[hash:base64:2]',
-        },
-      },
-    },
-  },
-  h5: {
-    publicPath: '/',
-    staticDirectory: 'assets',
-    postcss: {
-      // cssModules: {
-      //   enable: true,
-      //   config: {
-      //     namingPattern: 'global',
-      //     generateScopedName: '[local]_[hash:base64:2]'
-      //   }
-      // }
-    },
-    router: {
-      mode: 'hash',
-      customRoutes: routerConfig,
-    },
-    webpackChain(chain) {
-      isStartAnalyzer && chain.plugin('analyzer').use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin, []);
-    },
-    lessLoaderOption: {
-      strictMath: true,
-      noIeCompat: true,
-    },
-  },
+          browsers: ["last 3 versions", "Android >= 4.1", "ios >= 8"]
+        }
+      }
+    }
+  }
 };
+if (isBuildComponent) {
+  Object.assign(config.h5, {
+    enableSourceMap: false,
+    enableExtract: false,
+    enableDll: false
+  })
+  config.h5.webpackChain = chain => {
+    chain.plugins.delete('htmlWebpackPlugin')
+    chain.plugins.delete('addAssetHtmlWebpackPlugin')
+    chain.merge({
+      output: {
+        path: path.join(process.cwd(), 'dist', 'h5'),
+        filename: 'index.js',
+        libraryTarget: 'umd',
+        library: 'taro-ui'
+      },
+      externals: {
+        nervjs: 'commonjs2 nervjs',
+        classnames: 'commonjs2 classnames',
+        '@tarojs/components': 'commonjs2 @tarojs/components',
+        '@tarojs/taro-h5': 'commonjs2 @tarojs/taro-h5',
+        'weui': 'commonjs2 weui'
+      },
+      plugin: {
+        // extractCSS: {
+        //   plugin: MiniCssExtractPlugin,
+        //   args: [{
+        //     filename: 'css/index.css',
+        //     chunkFilename: 'css/[id].css'
+        //   }]
+        // }
+      }
+    })
+  }
+}
 
 module.exports = function (merge) {
   if (process.env.NODE_ENV === 'development') {
-    return merge({}, config, require('./dev'));
+    return merge({}, config, require('./dev'))
   }
-  return merge({}, config, require('./prod'));
-};
+  return merge({}, config, require('./prod'))
+}

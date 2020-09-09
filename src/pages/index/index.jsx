@@ -7,7 +7,7 @@ import { observable } from 'mobx';
 @observer
 class Index extends Component {
   @observable
-  componentsName = ['input', 'button', 'checkbox', 'tag', 'pagination', 'tab', 'table', 'message', 'modal', 'icon'];
+  componentsName = ['input', 'button', 'checkbox', 'tag', 'pagination', 'tab', 'table', 'message', 'modal', 'icon', 'tooltip'];
 
   redirect = url => {
     console.log('url:', `/${url}`);

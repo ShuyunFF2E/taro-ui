@@ -11,5 +11,6 @@ const router = {
   '/pages/message/index': '/message',
   '/pages/modal/index': '/modal',
   '/pages/icon/index': '/icon',
+  '/pages/tooltip/index': '/tooltip',
 };
 module.exports = router;

@@ -29,14 +29,21 @@ const iconList = [
   'double-angle-up',
 ];
 
-const iconStyle = { fontSize: '36px', color: '#595959', textAlign: 'center', marginBottom: '10px', lineHeight: '36px' };
+const iconStyle = {
+  display: 'block',
+  fontSize: '24px',
+  color: '#595959',
+  textAlign: 'center',
+  marginBottom: '10px',
+  lineHeight: '24px',
+};
 
 @observer
 class Index extends Component {
   render() {
     return (
       <View>
-        <Text style={{ display: 'block' }}>Icon组件</Text>
+        <View>Icon组件</View>
         {iconList.map((type, index) => (
           <View key={index} style={{ display: 'inline-block', padding: '10px 20px', boxSizing: 'border-box' }}>
             <CIcon type={type} style={iconStyle} />

@@ -1,0 +1,123 @@
+@import '../styles/index';
+
+@tooltip-prefix-cls: ~'@{prefix}-tooltip';
+@arrow-size: 6px;
+@border: @arrow-size solid currentColor;
+@z-index-tooltip: 1030;
+
+.left-style(@top) {
+  &:after {
+    top: @top;
+    right: -12px;
+    border-left: @border;
+  }
+}
+.right-style(@top) {
+  &:after {
+    top: @top;
+    left: -12px;
+    border-right: @border;
+  }
+}
+.top-style(@left) {
+  &:after {
+    left: @left;
+    bottom: -12px;
+    border-top: @border;
+  }
+}
+.bottom-style(@left) {
+  &:after {
+    left: @left;
+    top: -12px;
+    border-bottom: @border;
+  }
+}
+
+.@{tooltip-prefix-cls} {
+  position: absolute;
+  font-size: 24px;
+  min-height: 52px;
+  min-width: 140px;
+  max-width: 500px;
+  line-height: @line-height;
+  padding: 8px 20px;
+  box-sizing: border-box;
+  z-index: @z-index-tooltip;
+  word-break: break-all;
+  opacity: 0;
+  border: 1px solid @color-gray4;
+  background: @color-white;
+  color: @color-gray3;
+
+  &.show {
+    opacity: 1;
+  }
+
+  &.is-light {
+    @light-color: #dddee1;
+    background-color: @color-white;
+    color: @color-gray2;
+    box-shadow: -1px 0 @light-color, 0 -1px @light-color, 1px 0 @light-color, 0 1px @light-color;
+
+    &:after {
+      color: @light-color;
+    }
+  }
+
+  &.is-error {
+    background-color: @color-red1;
+    color: @color-gray1;
+    &:after {
+      color: @color-red1;
+    }
+  }
+
+  &.top-left {
+    .top-style(@arrow-size);
+  }
+
+  &.top-center {
+    .top-style(calc(50% - @arrow-size));
+  }
+
+  &.top-right {
+    .top-style(calc(100% - 10px));
+  }
+
+  &.right-top {
+    .right-style(@arrow-size);
+  }
+
+  &.right-center {
+    .right-style(calc(50% - @arrow-size));
+  }
+
+  &.right-bottom {
+    .right-style(calc(100% - 10px));
+  }
+
+  &.left-top {
+    .left-style(@arrow-size);
+  }
+
+  &.left-center {
+    .left-style(calc(50% - @arrow-size));
+  }
+
+  &.left-bottom {
+    .left-style(calc(100% - 10px));
+  }
+
+  &.bottom-left {
+    .bottom-style(@arrow-size);
+  }
+
+  &.bottom-center {
+    .bottom-style(calc(50% - @arrow-size));
+  }
+
+  &.bottom-right {
+    .bottom-style(calc(100% - 10px));
+  }
+}

@@ -16,7 +16,7 @@ class CInput extends Component {
     maxLength: PropTypes.number,
     disabled: PropTypes.bool,
     value: PropTypes.string,
-    onInput: PropTypes.func,
+    onChange: PropTypes.func,
   };
 
   static defaultProps = {
@@ -24,15 +24,15 @@ class CInput extends Component {
     maxLength: null,
     disabled: false,
     value: '',
-    onInput: () => {},
+    onChange: () => {},
   };
 
   onInputValue = e => {
-    this.props.onInput(e);
+    this.props.onChange(e);
   };
 
   render() {
-    const { label, placeholder, width, maxLength, disabled, value, onInput } = this.props;
+    const { label, placeholder, width, maxLength, disabled, value } = this.props;
     const _width = width + 'px';
 
     return (

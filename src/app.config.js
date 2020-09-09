@@ -12,6 +12,7 @@ export default {
     // 'pages/message/index',
     // 'pages/modal/index',
     'pages/icon/index',
+    'pages/tooltip/index',
   ],
   window: {
     backgroundTextStyle: 'light',

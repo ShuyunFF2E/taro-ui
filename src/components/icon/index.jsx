@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
-import { View } from '@tarojs/components';
+import { Text } from '@tarojs/components';
 import classNames from 'classnames';
 
 @observer
@@ -17,11 +17,7 @@ class CIcon extends Component {
 
   render() {
     const { type, style } = this.props;
-    return (
-      <View>
-        <View className={classNames(`sui-icon icon-${type}`)} style={style} />
-      </View>
-    );
+    return <Text className={classNames(`sui-icon icon-${type}`)} style={style} />;
   }
 }
 

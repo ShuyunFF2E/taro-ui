@@ -1,0 +1,98 @@
+@import '../style/index';
+
+@message-prefix-cls: ~'@{prefix}-message';
+
+@success-bg: #d8f2d4;
+@success-color: #3a773a;
+@success-border: #c3dabf;
+@success-x-color: #6da89c;
+@success-x-hover-color: #448074;
+@success-icon-color: #42aa31;
+
+@error-bg: #ffdfe0;
+@error-color: #853432;
+@error-border: #fbcdce;
+@error-x-color: #853432;
+@error-x-hover-color: #7b2624;
+@error-icon-color: #ff5243;
+
+.cloud-message-type(@bg, @bgBorderColor, @msgTextColor, @closeColor, @closeHoverColor, @tagColor) {
+  background: @bg;
+  border: 1px solid @bgBorderColor;
+  .msg-text {
+    color: @msgTextColor;
+    //margin-left: 40px;
+  }
+  //.close-icon {
+  //  color: @closeColor;
+  //  &:hover {
+  //    color: @closeHoverColor;
+  //  }
+  //}
+  .tag-icon {
+    color: @tagColor;
+  }
+}
+
+.@{message-prefix-cls} {
+  position: fixed;
+  max-height: 100%;
+  overflow-y: auto;
+  z-index: 1020;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  .notice {
+    display: inline-flex;
+    width: 450px;
+    line-height: 30px;
+    border-radius: 4px;
+    overflow: hidden;
+    font-size: 24px;
+    padding: 10px 40px;
+    margin-top: 1px;
+    box-sizing: border-box;
+    transform: translateY(-35%);
+    opacity: 0;
+    transition: 0.5s;
+    //div {
+    //  margin: 0 19px 0 6px;
+    //}
+    .sui-msg {
+      line-height: 30px !important;
+    }
+  }
+  .fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  //.close-icon {
+  //  position: absolute;
+  //  right: 10px;
+  //  font-size: 12px;
+  //  cursor: pointer;
+  //  opacity: 0.6;
+  //  margin-left: 20px;
+  //}
+  &-success {
+    .cloud-message-type(@success-bg, @success-border, @success-color, @success-x-color, @success-x-hover-color, @success-icon-color);
+  }
+
+  &-error {
+    .cloud-message-type(@error-bg, @error-border, @error-color, @error-x-color, @error-x-hover-color, @error-icon-color);
+  }
+
+  .icon-style {
+    .msg-icon {
+      width: 24px;
+      height: 24px;
+      font-size: 24px;
+      margin-right: 20px;
+      position: relative;
+    }
+  }
+}

@@ -9,7 +9,7 @@ export default {
     // 'pages/select/index',
     // 'pages/tab/index',
     // 'pages/table/index',
-    // 'pages/message/index',
+    'pages/message/index',
     // 'pages/modal/index',
     'pages/icon/index',
     'pages/tooltip/index',

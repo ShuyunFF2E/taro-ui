@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { View, Text } from '@tarojs/components';
 import CIcon from '../../components/icon';
+import classNames from 'classnames';
 
 const iconList = [
   'touch-plus',
@@ -27,6 +28,8 @@ const iconList = [
   'long-arrow-up',
   'double-angle-down',
   'double-angle-up',
+  'info-sign',
+  'folder-close',
 ];
 
 const iconStyle = {

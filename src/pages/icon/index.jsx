@@ -21,8 +21,10 @@ const iconList = [
   'pc-redo',
   'pc-chevron-left',
   'pc-chevron-right',
+  'pc-chevron-bottom',
   'pc-prev',
   'pc-next',
+  'pc-calendar',
   'arrow-fat-down',
   'arrow-fat-up',
   'long-arrow-up',
@@ -30,6 +32,20 @@ const iconList = [
   'double-angle-up',
   'info-sign',
   'folder-close',
+  'caret-right',
+
+  'pc-chevron-down-circle-sign',
+  'pc-chevron-down-circle',
+  'pc-arrow-down-circle-sign',
+  'pc-arrow-down-circle',
+  'touch-chevron-down',
+  'touch-arrow-down-circle',
+  'double-angle-down',
+  'angle-down',
+  'chevron-sign-down',
+  'arrow-fat-down',
+  'volume-down',
+  'arrow-down',
 ];
 
 const iconStyle = {

@@ -3,7 +3,7 @@ export default {
     'pages/index/index',
     'pages/input/index',
     'pages/button/index',
-    // 'pages/checkbox/index',
+    'pages/checkbox/index',
     'pages/tag/index',
     // 'pages/pagination/index',
     // 'pages/select/index',
